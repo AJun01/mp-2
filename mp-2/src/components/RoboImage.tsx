@@ -1,18 +1,31 @@
-import React from "react";
-import { ImageWrapper, Image, ImageTitle, InfoWrapper } from "./StyledRoboImage";
 
-function RoboImage({ data }) {
+interface RoboImageProps {
+  data: {
+    id: number;
+    name: string;
+    imageUrl: string;
+    timestamp: string;
+    size: string;
+  };
+}
+
+function RoboImage({ data }: RoboImageProps) {
   return (
-    <ImageWrapper>
-      <ImageTitle>Here is your Robo Image:</ImageTitle>
-      <Image src={data.imageUrl} alt={`Generated Robo Image: ${data.name}`} />
-      <InfoWrapper>
+    <div>
+      <h3>Here is your Robo Image:</h3>
+      <img
+        src={data.imageUrl}
+        alt={`Generated Robo Image: ${data.name}`}
+        width={data.size.split('x')[0]}
+        height={data.size.split('x')[1]}
+      />
+      <div>
         <p><strong>ID:</strong> {data.id}</p>
         <p><strong>Name:</strong> {data.name}</p>
         <p><strong>Generated At:</strong> {data.timestamp}</p>
         <p><strong>Image Size:</strong> {data.size}</p>
-      </InfoWrapper>
-    </ImageWrapper>
+      </div>
+    </div>
   );
 }
 

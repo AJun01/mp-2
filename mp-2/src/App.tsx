@@ -12,8 +12,8 @@ function App() {
   });
 
   const [currentId, setCurrentId] = useState(0);  
-  const [history, setHistory] = useState([]);  
-  const [selectedImage, setSelectedImage] = useState(null);  
+  const [history, setHistory] = useState<{ id: number; name: string; imageUrl: string; timestamp: string; size: string }[]>([]);
+  const [selectedImage, setSelectedImage] = useState<{ id: number; name: string; imageUrl: string; timestamp: string; size: string } | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);

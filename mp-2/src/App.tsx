@@ -39,7 +39,8 @@ function App() {
 
   const handleHistorySelect = (id: number) => {
     const image = history.find((item) => item.id === id);
-    setSelectedImage(image); 
+    setSelectedImage(image || null);
+
   };
 
   return (
